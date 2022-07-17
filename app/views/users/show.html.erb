@@ -10,9 +10,12 @@
       </tr>
       <tr>
         <th>introduction</th>
-        <th>user.info</th>
+        <th><%= @user.introduction %></th>
       </tr>
 
     </tbody>
   </table>
+  <% if @user == current_user.id %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+  <% end %>
 </div>
