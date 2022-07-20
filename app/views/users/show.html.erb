@@ -7,13 +7,7 @@
 <div class="container">
   <div class="row">
     <%= render 'list', user: @user, book: @book %>
-    <div class="col-md-8 offset-mad-1">
-      <% if flash[:notice] %>
-       <p id="notice">
-         <%= flash[:notice] %>
-       </p>
-      <% end %>
-
+    <div class="col-md-8 offset-md-1">
       <div>
         <h2>Books</h2>
         <table class="table table-hover table-inverse">
