@@ -21,6 +21,7 @@ class BooksController < ApplicationController
   end
 
   def edit
+    @user =  current_user
     @book = Book.find(params[:id])
   end
 
@@ -62,7 +63,7 @@ class BooksController < ApplicationController
   end
 
   def ensure_user
-    @user = User.find(params[:id])
+    @user = Book.find(params[:id]).user
     unless @user == current_user
       redirect_to '/books'
     end

@@ -1,5 +1,4 @@
-<div class="container px-5 px-sm-0">
-  <div class="row">
+
     <div class="col-md-3">
       <h2> User info</h2>
       <%= image_tag user.get_profile_image %>
@@ -17,19 +16,20 @@
 
         </tbody>
       </table>
-      <div class="row">
+      <div class="btn btn-outline-secondary btn-block edit_user_29478">
 
         <% if user == current_user %>
-          <%= link_to "プロフィール編集", edit_user_path(user) %>
+          <%= link_to edit_user_path(user) do %>
+            <i class="fas fa-user-cog"></i>
+          <% end %>
         <% else %>
-          <%= link_to "マイページ", user_path(current_user.id) %>
+           <%= link_to user_path(current_user.id) do %>
+             <i class="fas fa-user-cog"></i>
+            <% end %>
         <% end %>
       </div>
-    </div>
 
-  </div>
   <h2 class ="title">New book</h2>
-  <div class="row">
       <%= form_with model: book do |f| %>
 
         <div class="form-group">
@@ -42,9 +42,7 @@
           <%= f.text_field :body %>
         </div>
 
-        <%= f.submit 'Create Book' %>
+        <input type="submit" name="commit" value="Create Book" class="btn btn-success" data-disable-with="Create Book">
 
       <% end %>
-    </div>
   </div>
-</div>
