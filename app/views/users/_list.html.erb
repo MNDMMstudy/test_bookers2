@@ -1,33 +1,24 @@
 
-    <div class="col-md-3">
-      <h2> User info</h2>
-      <%= image_tag user.get_profile_image %>
-      <table class="table">
-        <tbody>
-          <tr></tr>
-          <tr>
-            <th>name</th>
-            <th><%= user.name %></th>
-          </tr>
-          <tr>
-            <th>introduction</th>
-            <th><%= user.introduction %></th>
-          </tr>
-        </tbody>
-      </table>
-
-        <% if user == current_user %>
-          <%= link_to edit_user_path(user),class:'btn btn-outline-secondary btn-block' do %>
-            <i class="fas fa-user-cog"></i>
-          <% end %>
-        <% else %>
-           <%= link_to user_path(current_user.id),class:'btn btn-outline-secondary btn-block' do %>
-             <i class="fas fa-user-cog"></i>
-            <% end %>
-        <% end %>
-
-
-  <h2 class ="title">New book</h2>
+  <div class="col-md-3">
+    <h2> User info</h2>
+    <%= image_tag user.get_profile_image %>
+    <table class="table">
+      <tbody>
+        <tr></tr>
+        <tr>
+          <th>name</th>
+          <th><%= user.name %></th>
+        </tr>
+        <tr>
+          <th>introduction</th>
+          <th><%= user.introduction %></th>
+        </tr>
+      </tbody>
+    </table>
+    <%= link_to edit_user_path(user),class:'btn btn-outline-secondary btn-block' do %>
+      <i class="fas fa-user-cog"></i>
+    <% end %>
+    <h2 class ="title">New book</h2>
       <%= form_with model: book do |f| %>
 
         <div class="form-group">
@@ -40,7 +31,7 @@
           <%= f.text_field :body %>
         </div>
 
-        <%= f.submit "Create Book" %>
+        <%= f.submit "Create Book", class:"btn btn-success" %>
 
       <% end %>
   </div>
